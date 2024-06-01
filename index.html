@@ -1,0 +1,342 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Website</title> -->
+    <!-- Importing a stylish font from Google Fonts -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Raleway', sans-serif; -->
+            
+            <!-- background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://www.shutterstock.com/image-illustration/clothes-on-grunge-background-shelf-600nw-1867100056.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+        .container {
+            text-align: center;
+        }
+        .brand-name {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .welcome-heading {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .search-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .search-bar {
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px 0 0 25px;
+            width: 300px;
+            outline: none;
+        }
+        .search-button {
+            padding: 15px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 0 25px 25px 0;
+            background-color: #f5f5dc;
+            color: black;
+            cursor: pointer;
+            outline: none;
+        }
+        .search-button:hover {
+            background-color: #e0e0c0;
+        } -->
+    <!-- </style>
+</head>
+<body>
+    <div class="container">
+        <div class="brand-name">Zevi</div>
+        <div class="welcome-heading">Welcome to Veedanshi's Zevi</div>
+        <div class="search-container">
+            <input type="text" id="searchBar" class="search-bar" placeholder="Search for brands...">
+            <button class="search-button" onclick="searchBrand()">Search</button>
+        </div>
+    </div>
+    <script>
+        function searchBrand() {
+            const query = document.getElementById('searchBar').value;
+            window.location.href = `results.html?brand=${query}`;
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zevi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Raleway', sans-serif;
+        }
+        .background-image {
+            background-image: url('https://www.shutterstock.com/image-illustration/clothes-on-grunge-background-shelf-600nw-1867100056.jpg');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .brand-name {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        h1, h2 {
+            margin: 0;
+            padding: 10px;
+        }
+        h1 {
+            font-size: 3em;
+            font-weight: 700;
+        }
+        h2 {
+            font-size: 1.5em;
+            font-weight: 400;
+        }
+        .search-container {
+            margin-top: 20px;
+        }
+        .search-bar {
+            padding: 10px;
+            width: 300px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .search-button {
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            background-color: #d9b382;
+            color: white;
+            cursor: pointer;
+        }
+        .search-button:hover {
+            background-color: #c19a6b;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-image">
+        <div class="brand-name">Zevi</div>
+        <h1>Welcome to Veedanshi's Zevi</h1>
+        <h2>Find your favorite brands here</h2>
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-bar" placeholder="Search for brands...">
+            <button class="search-button" onclick="search()">Search</button>
+        </div>
+    </div>
+
+    <script>
+        function search() {
+            const searchInput = document.getElementById('searchInput').value;
+            if (searchInput) {
+                window.location.href = `results.html?query=${encodeURIComponent(searchInput)}`;
+            }
+        }
+    </script>
+</body>
+</html> -->
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zevi - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+            height: 100%;
+            color: black;
+        }
+        .background {
+            background-image: url('https://www.shutterstock.com/image-illustration/clothes-on-grunge-background-shelf-600nw-1867100056.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .heading {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .subheading {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .search-bar {
+            position: relative;
+            display: flex;
+            width: 50%;
+            margin: 0 auto;
+        }
+        .search-input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            font-size: 18px;
+        }
+        .search-button {
+            position: absolute;
+            right: 0;
+            padding: 10px 20px;
+            background-color: #f5f5dc;
+            border: none;
+            border-radius: 25px;
+            font-size: 18px;
+            cursor: pointer;
+            color: #333;
+        }
+        .search-button:hover {
+            background-color: #e3e3e3;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="heading">Welcome to Veedanshi's Zevi</div>
+        <div class="subheading">Find Your Favorite Brand</div>
+        <form class="search-bar" action="results.html" method="get">
+            <input type="text" name="brand" class="search-input" placeholder="Search for brands..." required>
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </div>
+</body>
+</html>
+ -->
+
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zevi - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: 'Raleway', sans-serif;
+        }
+        .background {
+            background: url('https://www.shutterstock.com/image-illustration/clothes-on-grunge-background-shelf-600nw-1867100056.jpg') no-repeat center center/cover;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: white;
+        }
+        .welcome-heading {
+            font-size: 32px;
+            font-weight: 700;
+            color: #a57c3b; /* Darker beige color */
+            margin-bottom: 20px;
+        }
+        .search-container {
+            position: relative;
+            width: 50%;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .search-bar::placeholder {
+            color: #a57c3b; /* Match the color for consistency */
+        }
+        .search-button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #a57c3b;
+            border: none;
+            color: white;
+            border-radius: 25px;
+            cursor: pointer;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="content">
+        <h1 class="welcome-heading">Welcome to Veedanshi's Zevi</h1>
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search for brands...">
+            <button class="search-button" onclick="search()">Search</button>
+        </div>
+    </div>
+    <script>
+        function search() {
+            const query = document.querySelector('.search-bar').value;
+            window.location.href = `results.html?brand=${query}`;
+        }
+    </script>
+</body>
+</html>

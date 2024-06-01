@@ -1,0 +1,267 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Zevi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+            background-color: #f5f5dc;
+            color: black;
+        }
+        .container {
+            padding: 20px;
+        }
+        .brand-name {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .filter-container {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .filter-container label {
+            margin: 0 10px;
+        }
+        .filter-container h3 {
+            margin: 0 10px;
+            font-size: 16px;
+        }
+        .filter-container button {
+            padding: 10px 20px;
+            background-color: #333;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .filter-container button:hover {
+            background-color: #555;
+        }
+        .search-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            background: #fff8e1;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .product-image {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        .product-image:hover {
+            transform: scale(1.05);
+        }
+        .tap-to-view {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 18px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .product-card:hover .tap-to-view {
+            opacity: 1;
+        }
+        .product-info {
+            margin-top: 10px;
+        }
+        .product-name {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .product-brand {
+            font-size: 14px;
+            color: #555;
+        }
+        .product-price {
+            font-size: 16px;
+            color: #e53935;
+        }
+        .product-rating {
+            font-size: 14px;
+            color: #ffb300;
+        }
+        .wishlist-button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 20px;
+            color: #ccc;
+            outline: none;
+            transition: color 0.3s ease;
+        }
+        .wishlist-button.active {
+            color: #ff6f61;
+        }
+        .wishlist-button:hover {
+            color: #ff3f31;
+        }
+    </style>
+    <script>
+        const products = [
+            { name: "Off-Shoulder Cotton Jersey", brand: "H&M", price: 3499, rating: 4, image: "product1.jpg" },
+            { name: "Product 2", brand: "Zara", price: 6999, rating: 5, image: "product2.jpg" },
+            { name: "Product 3", brand: "Mango", price: 5499, rating: 3, image: "product3.jpg" },
+            { name: "Product 4", brand: "H&M", price: 4999, rating: 4, image: "product4.jpg" },
+            { name: "Product 5", brand: "Zara", price: 9999, rating: 3, image: "product5.jpg" },
+            { name: "Product 6", brand: "Mango", price: 6499, rating: 4, image: "product6.jpg" },
+            { name: "Product 7", brand: "H&M", price: 2999, rating: 5, image: "product7.jpg" },
+            { name: "Product 8", brand: "Zara", price: 7999, rating: 4, image: "product8.jpg" },
+            { name: "Product 9", brand: "Mango", price: 5999, rating: 5, image: "product9.jpg" },
+            { name: "Product 10", brand: "H&M", price: 3999, rating: 3, image: "product10.jpg" },
+        ];
+
+        function renderProducts(productsToRender) {
+            const container = document.querySelector('.search-results');
+            container.innerHTML = '';
+            productsToRender.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.classList.add('product-card');
+                productCard.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <div class="tap-to-view">Tap to view</div>
+                    <div class="product-info">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-brand">${product.brand}</div>
+                        <div class="product-price">₹${product.price}</div>
+                        <div class="product-rating">${'★'.repeat(product.rating)}${'☆'.repeat(5 - product.rating)}</div>
+                        <button class="wishlist-button" onclick="toggleWishlist(this)">♥</button>
+                    </div>
+                `;
+                container.appendChild(productCard);
+            });
+        }
+
+        // function getFilteredProducts() {
+        //     const urlParams = new URLSearchParams(window.location.search);
+        //     const brand = urlParams.get('brand');
+        //     const filteredProducts = products.filter(product => product.brand.toLowerCase().includes(brand.toLowerCase()));
+        //     renderProducts(filteredProducts);
+        // }
+        function getFilteredProducts() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const brand = urlParams.get('brand');
+    let filteredProducts;
+
+    if (brand && brand.toLowerCase() !== 'all') {
+        filteredProducts = products.filter(product => product.brand.toLowerCase().includes(brand.toLowerCase()));
+    } else {
+        filteredProducts = products;
+    }
+
+    renderProducts(filteredProducts);
+}
+
+
+        function toggleWishlist(button) {
+            button.classList.toggle('active');
+        }
+
+        function applyFilters() {
+            const brandCheckboxes = document.querySelectorAll('input[name="brand"]:checked');
+            const priceCheckboxes = document.querySelectorAll('input[name="price"]:checked');
+            const ratingCheckboxes = document.querySelectorAll('input[name="rating"]:checked');
+
+            let filteredProducts = products.slice();
+
+            if (brandCheckboxes.length > 0) {
+                const brands = Array.from(brandCheckboxes).map(cb => cb.value);
+                filteredProducts = filteredProducts.filter(product => brands.includes(product.brand));
+            }
+
+            if (priceCheckboxes.length > 0) {
+                const priceRanges = Array.from(priceCheckboxes).map(cb => cb.value);
+                filteredProducts = filteredProducts.filter(product => {
+                    return priceRanges.some(range => {
+                        const [min, max] = range.split('-').map(Number);
+                        return product.price >= min && product.price <= max;
+                    });
+                });
+            }
+
+            if (ratingCheckboxes.length > 0) {
+                const ratings = Array.from(ratingCheckboxes).map(cb => Number(cb.value));
+                filteredProducts = filteredProducts.filter(product => ratings.includes(product.rating));
+            }
+
+            renderProducts(filteredProducts);
+        }
+
+        window.onload = () => {
+            getFilteredProducts();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="brand-name">Zevi</div>
+        <div class="filter-container">
+            <h3>Brand</h3>
+            <label>
+                <input type="checkbox" name="brand" value="H&M"> H&M
+            </label>
+            <label>
+                <input type="checkbox" name="brand" value="Zara"> Zara
+            </label>
+            <label>
+                <input type="checkbox" name="brand" value="Mango"> Mango
+            </label>
+            <h3>Price</h3>
+            <label>
+                <input type="checkbox" name="price" value="0-3500">₹0 - ₹3,500
+            </label>
+            <label>
+                <input type="checkbox" name="price" value="3501-7000">₹3,501 - ₹7,000
+            </label>
+            <label>
+                <input type="checkbox" name="price" value="7001-14000">₹7,001 - ₹14,000
+            </label>
+            <h3>Rating</h3>
+            <label>
+                <input type="checkbox" name="rating" value="4"> 4 stars & up
+            </label>
+            <label>
+                <input type="checkbox" name="rating" value="3"> 3 stars & up
+            </label>
+            <label>
+                <input type="checkbox" name="rating" value="2"> 2 stars & up
+            </label>
+            <button onclick="applyFilters()">Apply Filters</button>
+        </div>
+        <div class="search-results"></div>
+    </div>
+</body>
+</html>
